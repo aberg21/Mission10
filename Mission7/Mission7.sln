@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.810.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mission7", "WaterProject\Mission7.csproj", "{3DBB6A71-46DF-431B-B000-99AF14A9CF9C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mission7", "Mission7.csproj", "{CBCC089E-EE42-47E6-9C20-DE269793F11A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3DBB6A71-46DF-431B-B000-99AF14A9CF9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3DBB6A71-46DF-431B-B000-99AF14A9CF9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3DBB6A71-46DF-431B-B000-99AF14A9CF9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3DBB6A71-46DF-431B-B000-99AF14A9CF9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBCC089E-EE42-47E6-9C20-DE269793F11A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBCC089E-EE42-47E6-9C20-DE269793F11A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBCC089E-EE42-47E6-9C20-DE269793F11A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBCC089E-EE42-47E6-9C20-DE269793F11A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {07970AE4-44BF-43E8-8E22-41B8E17858F2}
+		SolutionGuid = {68AEF370-3123-45FE-A6F7-6A6E82824F3B}
 	EndGlobalSection
 EndGlobal

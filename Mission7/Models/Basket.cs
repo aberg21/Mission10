@@ -1,22 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace Mission7.Models
 {
     public class Basket
     {
-        public List<BasketLineItem> Items { get; set; } = new List<BasketLineItem>();
+        public List<BasketLineItem> Carts { get; set; } = new List<BasketLineItem>();
 
-        public void AddItem (Books boo, int qty)
+        public virtual void AddItem (Books boo, int qty)
         {
-            BasketLineItem line = Items
+            BasketLineItem line = Carts
                 .Where(b => b.Books.BookId == boo.BookId)
                 .FirstOrDefault();
 
             if (line == null)
             {
-                Items.Add(new BasketLineItem
+                Carts.Add(new BasketLineItem
                 {
                     Books = boo,
                     Quantity = qty
@@ -29,10 +30,21 @@ namespace Mission7.Models
         }
 
 
+        public virtual void RemoveItem (Books boo)
+        {
+            Carts.RemoveAll(x => x.Books.BookId == boo.BookId);
+        }
+
+        public virtual void ClearBasket()
+        {
+            Carts.Clear();
+        }
+
+
 
         public double CalculateTotal()
         {
-            double sum = Items.Sum(x => x.Quantity * x.Books.Price);
+            double sum = Carts.Sum(x => x.Quantity * x.Books.Price);
 
             return sum;
         }
@@ -41,6 +53,7 @@ namespace Mission7.Models
 
     public class BasketLineItem
     {
+        [Key]
         public int LineID { get; set; }
         public Books Books { get; set; }
         public int Quantity { get; set; }

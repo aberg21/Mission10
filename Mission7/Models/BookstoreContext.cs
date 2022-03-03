@@ -20,6 +20,7 @@ namespace Mission7.Models
         }
 
         public virtual DbSet<Books> Books { get; set; }
+        public DbSet<Donation> Donations { get; set; }
 
     }
 }

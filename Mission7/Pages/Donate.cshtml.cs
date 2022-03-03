@@ -13,9 +13,10 @@ namespace Mission7.Pages
     {
         private IBookRepository repo { get; set; }
 
-        public DonateModel (IBookRepository temp)
+        public DonateModel (IBookRepository temp, Basket b)
         {
             repo = temp;
+            basket = b;
         }
 
         public Basket basket { get; set; }
@@ -24,20 +25,23 @@ namespace Mission7.Pages
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
 
         }
 
-        public RedirectToPageResult OnPost(int bookId, string returnUrl)
+        public IActionResult OnPost(int bookId, string returnUrl)
         {
             Books b = repo.Books.FirstOrDefault(x => x.BookId == bookId);
 
-            basket = HttpContext.Session.GetJson<Basket>("basket") ?? new Basket();
             basket.AddItem(b, 1);
 
-            HttpContext.Session.SetJson("basket", basket);
-
             return RedirectToPage(new { ReturnUrl = returnUrl });
+        }
+
+        public IActionResult OnPostRemove (int bookId, string returnUrl)
+        {
+            basket.RemoveItem(basket.Carts.First(x => x.Books.BookId == bookId).Books);
+
+            return RedirectToPage (new { ReturnUrl = returnUrl });
         }
     }
 }

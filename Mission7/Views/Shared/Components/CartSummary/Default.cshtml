@@ -1,12 +1,11 @@
-﻿@*@page
-@{
+﻿@{
 }
 @model Basket
 <div class="">
     @if (Model.Carts.Count() > 0)
     {
         <small class="navbar-text">
-            <b>Your cart:</b>\
+            <b>Your cart:</b>
             @Model.Carts.Sum(x => x.Quantity) item(s)
             @Model.CalculateTotal().ToString("c")
         </small>
@@ -15,4 +14,4 @@
        asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
         <i class="fa fa-shopping-cart"></i>
     </a>
-</div>*@
+</div>

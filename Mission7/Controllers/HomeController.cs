@@ -32,7 +32,7 @@ namespace Mission7.Controllers
 
             var x = new BooksViewModel
             {
-                Books = repo.Books
+                Book = repo.Books
                 .Where(b => b.Category == projectType || projectType == null)
                 .OrderBy(b => b.Title)
                 .Skip((pageNum - 1) * pageSize)

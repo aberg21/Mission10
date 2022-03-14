@@ -1,0 +1,30 @@
+﻿@inherits LayoutComponentBase
+
+<div class="bg-info text-white p-2 navbar-dark bg-dark">
+    <span class="navbar-brand m-lg-2 navbar-dark bg-dark">Books Administration</span>
+    <form class="form-inline navbar navbar-dark bg-dark">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+
+<div class="container-fluid">
+
+    <div class="row p-2">
+
+        <div class="col-3">
+            <div class="d-grid gap-2">
+                <NavLink class="btn btn-outline-primary" href="/admin/booklist"
+                         ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Books</NavLink>
+                <NavLink class="btn btn-outline-primary" href="/admin/donations"
+                         ActiveClass="btn-primary text-white" Match="NavLinkMatch.Prefix">Shipped</NavLink>
+            </div>
+        </div>
+
+        <div class="col">
+            @Body
+        </div>
+
+    </div>
+
+</div>

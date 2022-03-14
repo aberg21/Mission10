@@ -1,0 +1,41 @@
+﻿@page "/admin/donations"
+@inherits OwningComponentBase<IDonationRepository>
+
+<DonationTable TableTitle="Unshipped Orders" Donations="UnshippedOrders"
+               ButtonLabel="Ship Order" DonationSelected="ShipOrder"></DonationTable>
+
+<DonationTable TableTitle="Shipped Orders" Donations="ShippedOrders"
+               ButtonLabel="Reset Order" DonationSelected="ResetOrder"></DonationTable>
+
+<button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</button>
+
+@code {
+
+    public IDonationRepository repo => Service;
+
+    public IEnumerable<Donation> AllPurchases { get; set; }
+    public IEnumerable<Donation> UnshippedOrders { get; set; }
+    public IEnumerable<Donation> ShippedOrders { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await UpdateData();
+    }
+
+    public async Task UpdateData()
+    {
+        AllPurchases = await repo.Donations.ToListAsync();
+        UnshippedOrders = AllPurchases.Where(x => !x.OrderShipped);
+        ShippedOrders = AllPurchases.Where(x => x.OrderShipped);
+    }
+
+    public void ShipOrder(int id) => UpdateDonation(id, true);
+    public void ResetOrder(int id) => UpdateDonation(id, false);
+
+    private void UpdateDonation (int id, bool donated)
+    {
+        Donation d = repo.Donations.FirstOrDefault(x => x.DonationId == id);
+        d.OrderShipped = donated;
+        repo.SaveDonation(d);
+    }
+}

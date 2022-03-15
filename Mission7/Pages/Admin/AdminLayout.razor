@@ -1,11 +1,29 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="bg-info text-white p-2 navbar-dark bg-dark">
-    <span class="navbar-brand m-lg-2 navbar-dark bg-dark">Books Administration</span>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col">
+                <span class="navbar-brand m-lg-2">Books Administration</span>
+            </div>
+
+        </div>
+
+        <div class="col-2 text-right">
+            <a class="btn btn-sm btn-primary" href="/account/logout">Log Out</a>
+        </div>
+
+    </div>
+
+   
     <form class="form-inline navbar navbar-dark bg-dark">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+
 </div>
 
 <div class="container-fluid">
@@ -16,7 +34,7 @@
             <div class="d-grid gap-2">
                 <NavLink class="btn btn-outline-primary" href="/admin/booklist"
                          ActiveClass="btn-primary text-black" Match="NavLinkMatch.Prefix">Books</NavLink>
-                <NavLink class="btn btn-outline-primary" href="/admin/donations"
+                <NavLink class="btn btn-outline-primary" href="/admin/shipped"
                          ActiveClass="btn-primary text-black" Match="NavLinkMatch.Prefix">Shipped</NavLink>
             </div>
         </div>
